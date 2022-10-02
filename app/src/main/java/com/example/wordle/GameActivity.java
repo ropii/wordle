@@ -3,6 +3,7 @@ package com.example.wordle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -60,16 +61,25 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if (view==btn_submit){
+        if (view==btn_submit&&row<4){
             String guess = et_words.getText().toString();
             if(guess.length()==5){
                 for (int i = 1; i <=5 ; i++) {
-                    textViewArray[row][i].setText(guess.charAt(i-1));
-                    if ( textViewArray[row][i].getText().equals(word.charAt(i-1))){
-                        textViewArray[row][i].setTextColor(Integer.parseInt("#000000"));
+                    textViewArray[row][i].setTextSize(25);
+                    textViewArray[row][i].setText(""+guess.charAt(i-1));
+                    if(word.indexOf(guess.charAt(i-1))>-1){
+                        textViewArray[row][i].setBackgroundColor(Color.YELLOW);
+                    }
+                    if ( (""+guess.charAt(i-1)).equals(word.charAt(i-1)+"")){
+                        textViewArray[row][i].setBackgroundColor(Color.GREEN);
                     }
 
                 }
+                if (word.equals(guess)){
+                    tv_answer.setText("u wonnnnnnnnnnnn");
+
+                }
+                row+=1;
 
             }
 

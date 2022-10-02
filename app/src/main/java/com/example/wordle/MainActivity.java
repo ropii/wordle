@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String word = et_add.getText().toString();
                 editor.putString((number_of_words+""), word);
                 editor.commit();
+                et_add.setText("");
             }
         }
         if (view==btn_move_to_game){
