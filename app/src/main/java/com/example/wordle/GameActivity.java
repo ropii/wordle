@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
-    TextView[][] textViewArray = new TextView[4][6];
+    TextView[][] textViewArray = new TextView[5][6];
     EditText et_words;
     TextView tv_answer;
     String word;
@@ -48,6 +48,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         textViewArray[3][4] = findViewById(R.id.tv3_4);
         textViewArray[3][5] = findViewById(R.id.tv3_5);
 
+        textViewArray[4][1] = findViewById(R.id.tv4_1);
+        textViewArray[4][2] = findViewById(R.id.tv4_2);
+        textViewArray[4][3] = findViewById(R.id.tv4_3);
+        textViewArray[4][4] = findViewById(R.id.tv4_4);
+        textViewArray[4][5] = findViewById(R.id.tv4_5);
+
         et_words = findViewById(R.id.et_words);
         tv_answer = findViewById(R.id.tv_answer);
         sp = getSharedPreferences("words", MODE_PRIVATE);
@@ -61,7 +67,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if (view==btn_submit&&row<4){
+        if (view==btn_submit&&row<5){
             String guess = et_words.getText().toString();
             if(guess.length()==5){
                 for (int i = 1; i <=5 ; i++) {
