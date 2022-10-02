@@ -73,6 +73,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     if ( (""+guess.charAt(i-1)).equals(word.charAt(i-1)+"")){
                         textViewArray[row][i].setBackgroundColor(Color.GREEN);
                     }
+                    et_words.setText("");
+
 
                 }
                 if (word.equals(guess)){
